@@ -1,8 +1,132 @@
 <!DOCTYPE html>
-<html>
-  <head><title>Skip Web</title></head>
-  <body>
-    <h1>Skip Webへようこそ！</h1>
-    <p>このページはGitHub Pagesで公開されています。</p>
-  </body>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>SKIP - つくるを、もっと軽く。</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; color: #222; background: #fafafa; }
+    header { padding: 64px 24px 40px; text-align: center; background: linear-gradient(135deg, #111827, #1f2937); color: #f9fafb; }
+    header h1 { font-size: 2.6rem; margin-bottom: 12px; }
+    header p { font-size: 1.1rem; opacity: 0.9; }
+    .tagline { font-size: 0.95rem; letter-spacing: .08em; text-transform: uppercase; color: #9ca3af; margin-bottom: 12px; }
+    .btn-primary { display: inline-block; margin-top: 24px; padding: 10px 22px; border-radius: 999px; background: #3b82f6; color: #fff; text-decoration: none; font-size: 0.95rem; }
+    .btn-primary:hover { background: #2563eb; }
+
+    main { max-width: 960px; margin: 0 auto; padding: 32px 16px 64px; }
+    section { margin-bottom: 48px; }
+    h2 { font-size: 1.6rem; margin-bottom: 12px; }
+    p { line-height: 1.7; font-size: 0.98rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 16px; }
+    .card { background: #ffffff; border-radius: 12px; padding: 18px 18px 16px; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06); }
+    .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .badge { display: inline-block; font-size: 0.75rem; padding: 2px 8px; border-radius: 999px; background: #e5e7eb; color: #4b5563; margin-bottom: 6px; }
+
+    code { background: #111827; color: #e5e7eb; padding: 12px 14px; border-radius: 8px; display: block; font-size: 0.85rem; overflow-x: auto; }
+    footer { text-align: center; font-size: 0.8rem; color: #6b7280; padding: 24px 0 32px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="tagline">YAML × Python Mini Apps</div>
+    <h1>SKIPで、アイデアをすぐ「動くもの」に。</h1>
+    <p>設定ファイルを書くみたいに、ミニアプリを組み立てる。<br>
+       コード地獄にハマらず、試したいことをサクッと形にできる開発体験。</p>
+    <a href="#features" class="btn-primary">SKIPの特徴を見る</a>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>SKIPとは？</h2>
+      <p>
+        <strong>SKIP</strong>は、YAMLでアプリの構造を記述し、Pythonでロジックを補うことで、
+        「ちょっとしたツール」「試したいアイデア」を素早く形にするためのミニアプリフレームワークです。<br>
+        フルスタックなフレームワークほど重くなく、スクリプト単体よりも整理された形で、
+        小さなプロジェクトをどんどん積み上げていけます。
+      </p>
+    </section>
+
+    <section id="features">
+      <h2>SKIPの良さ</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="badge">01</div>
+          <h3>YAMLで「画面」と「流れ」を書ける</h3>
+          <p>
+            画面構成やフローをYAMLで宣言的に書けるので、<br>
+            「何がどこにあるか」が一目でわかります。UIや処理の全体像を俯瞰しやすく、
+            後から見返しても迷子になりません。
+          </p>
+        </div>
+        <div class="card">
+          <div class="badge">02</div>
+          <h3>ロジックはPythonでシンプルに</h3>
+          <p>
+            複雑な部分だけPythonで書けばOK。<br>
+            ルーティングや土台のボイラープレートに時間を取られず、
+            「本当に書きたい処理」に集中できます。
+          </p>
+        </div>
+        <div class="card">
+          <div class="badge">03</div>
+          <h3>小さく始めて、すぐ動かせる</h3>
+          <p>
+            1ファイルのYAMLと少しのPythonからスタートできるので、<br>
+            思いついたその日にミニアプリを動かせます。
+            重い設計や巨大なリポジトリを用意する必要はありません。
+          </p>
+        </div>
+        <div class="card">
+          <div class="badge">04</div>
+          <h3>「使い捨て」じゃないプロトタイプ</h3>
+          <p>
+            ただのスクリプトで終わらせず、<br>
+            ちゃんとした構造を持ったミニアプリとして残せるので、
+            後から再利用・拡張しやすいのもポイントです。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="example">
+      <h2>どんな感じで書くの？</h2>
+      <p>例えば、シンプルな入力フォーム付きツールは、こんなイメージで書けます。</p>
+      <code>
+app:
+  title: "テキスト要約ツール"
+  pages:
+    - id: "home"
+      type: "form"
+      fields:
+        - name: "text"
+          label: "要約したいテキスト"
+          type: "textarea"
+      actions:
+        - label: "要約する"
+          handler: "summarize"
+
+# Python側
+def summarize(text: str) -&gt; str:
+    return my_summarizer(text)
+      </code>
+      <p>
+        画面やフローはYAMLで、処理はPythonで。<br>
+        役割がはっきり分かれているから、後から読む人にも優しい構成になります。
+      </p>
+    </section>
+
+    <section id="who">
+      <h2>こんな人に刺さるSKIP</h2>
+      <ul>
+        <li><strong>アイデアをすぐ動かして試したい人</strong>（でもフルフレームワークは重いと感じる）</li>
+        <li><strong>小さなツールを量産したい人</strong>（整理された形で残しておきたい）</li>
+        <li><strong>YAMLや設定ファイルを書くのが好きな人</strong></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    SKIP - つくるを、もっと軽く。 / YourName or Project Link Here
+  </footer>
+</body>
 </html>
