@@ -23,7 +23,8 @@
     .badge { display: inline-block; font-size: 0.75rem; padding: 2px 8px; border-radius: 999px; background: #e5e7eb; color: #4b5563; margin-bottom: 6px; }
 
     code { background: #111827; color: #e5e7eb; padding: 12px 14px; border-radius: 8px; display: block; font-size: 0.85rem; overflow-x: auto; }
-    footer { text-align: center; font-size: 0.8rem; color: #6b7280; padding: 24px 0 32px; }
+
+    footer { text-align: center; font-size: 0.8rem; color: #6b7280; padding: 24px 0 32px; margin-top: 40px; }
   </style>
 </head>
 <body>
@@ -53,36 +54,35 @@
           <div class="badge">01</div>
           <h3>YAMLで「画面」と「流れ」を書ける</h3>
           <p>
-            画面構成やフローをYAMLで宣言的に書けるので、<br>
-            「何がどこにあるか」が一目でわかります。UIや処理の全体像を俯瞰しやすく、
-            後から見返しても迷子になりません。
+            画面構成やフローをYAMLで宣言的に書けるので、  
+            「何がどこにあるか」が一目でわかります。
           </p>
         </div>
+
         <div class="card">
           <div class="badge">02</div>
           <h3>ロジックはPythonでシンプルに</h3>
           <p>
-            複雑な部分だけPythonで書けばOK。<br>
-            ルーティングや土台のボイラープレートに時間を取られず、
-            「本当に書きたい処理」に集中できます。
+            複雑な部分だけPythonで書けばOK。  
+            ルーティングやボイラープレートに時間を取られません。
           </p>
         </div>
+
         <div class="card">
           <div class="badge">03</div>
           <h3>小さく始めて、すぐ動かせる</h3>
           <p>
-            1ファイルのYAMLと少しのPythonからスタートできるので、<br>
+            1つのYAMLと少しのPythonからスタートできるので、  
             思いついたその日にミニアプリを動かせます。
-            重い設計や巨大なリポジトリを用意する必要はありません。
           </p>
         </div>
+
         <div class="card">
           <div class="badge">04</div>
           <h3>「使い捨て」じゃないプロトタイプ</h3>
           <p>
-            ただのスクリプトで終わらせず、<br>
-            ちゃんとした構造を持ったミニアプリとして残せるので、
-            後から再利用・拡張しやすいのもポイントです。
+            スクリプトで終わらせず、構造化されたミニアプリとして残せるため、  
+            再利用・拡張がしやすいのもポイントです。
           </p>
         </div>
       </div>
@@ -90,7 +90,7 @@
 
     <section id="example">
       <h2>どんな感じで書くの？</h2>
-      <p>例えば、シンプルな入力フォーム付きツールは、こんなイメージで書けます。</p>
+      <p>例えば、シンプルな入力フォーム付きツールはこんな感じで書けます。</p>
       <code>
 app:
   title: "テキスト要約ツール"
@@ -109,24 +109,54 @@ app:
 def summarize(text: str) -&gt; str:
     return my_summarizer(text)
       </code>
+    </section>
+
+    <section id="ide">
+      <h2>SKIP IDE — SKIPを最大限に活かす公式エディタ</h2>
       <p>
-        画面やフローはYAMLで、処理はPythonで。<br>
-        役割がはっきり分かれているから、後から読む人にも優しい構成になります。
+        SKIP IDE は、SKIPアプリを素早く作るための軽量エディタです。<br>
+        YAML と Python を同時に扱いやすくし、ミニアプリ開発をさらにスムーズにします。
       </p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="badge">IDE 01</div>
+          <h3>YAML × Python の二面編集</h3>
+          <p>画面定義とロジックを並べて編集でき、構造が直感的に理解できます。</p>
+        </div>
+
+        <div class="card">
+          <div class="badge">IDE 02</div>
+          <h3>ワンクリック実行</h3>
+          <p>Run ボタンひとつで SKIP アプリを即実行。試行錯誤が圧倒的に速い。</p>
+        </div>
+
+        <div class="card">
+          <div class="badge">IDE 03</div>
+          <h3>エラー表示とログ</h3>
+          <p>実行時のエラーやログを IDE 内で確認でき、デバッグがスムーズ。</p>
+        </div>
+
+        <div class="card">
+          <div class="badge">IDE 04</div>
+          <h3>ファイル読み込み・保存</h3>
+          <p>`.skip` や `.py` を直接開いて編集可能。Android（Pydroid）でも動作。</p>
+        </div>
+      </div>
     </section>
 
     <section id="who">
       <h2>こんな人に刺さるSKIP</h2>
       <ul>
-        <li><strong>アイデアをすぐ動かして試したい人</strong>（でもフルフレームワークは重いと感じる）</li>
-        <li><strong>小さなツールを量産したい人</strong>（整理された形で残しておきたい）</li>
+        <li><strong>アイデアをすぐ動かして試したい人</strong></li>
+        <li><strong>小さなツールを量産したい人</strong></li>
         <li><strong>YAMLや設定ファイルを書くのが好きな人</strong></li>
       </ul>
     </section>
   </main>
 
   <footer>
-    SKIP - つくるを、もっと軽く。 / YourName or Project Link Here
+    © 2026 SKIP — All rights reserved.
   </footer>
 </body>
 </html>
