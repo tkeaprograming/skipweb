@@ -2,11 +2,11 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>SKIP - YAML × Python ミニアプリフレームワーク</title>
+  <title>SKIP - ミニマルなスクリプトとツールのためのフレームワーク</title>
 
   <!-- SEO -->
-  <meta name="description" content="SKIPはYAMLで画面を定義し、Pythonでロジックを書くミニアプリフレームワーク。小さなツールやユーティリティを素早く作るための軽量な開発体験を提供します。">
-  <meta name="keywords" content="SKIP, skipweb, YAML, Python, ミニアプリ, ツール, フレームワーク">
+  <meta name="description" content="SKIPは、小さなスクリプトやツールを気軽に書くためのミニマルなフレームワークです。printlnやvarなど、シンプルな構文から始められます。">
+  <meta name="keywords" content="SKIP, tkea, ミニ言語, スクリプト, println, var">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -470,15 +470,14 @@
         <div class="logo-mark">S</div>
         <div>
           <div class="logo-text-main">SKIP</div>
-          <div class="logo-text-sub">YAML × PYTHON MINI APP FRAMEWORK</div>
+          <div class="logo-text-sub">MINIMAL SCRIPT FRAMEWORK</div>
         </div>
       </div>
       <nav class="nav-links">
         <a href="#about">概要</a>
-        <a href="#examples">コード例</a>
         <a href="#mini-ide">ミニIDE</a>
         <a href="#links">リンク</a>
-        <a href="https://github.com/tkeaprograming/skip" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://zenn.dev/tkea" target="_blank" rel="noopener">Zenn</a>
       </nav>
     </header>
 
@@ -486,52 +485,41 @@
     <section class="hero">
       <div class="hero-card">
         <div class="hero-badges">
-          <span class="badge-accent">YAMLで構造、Pythonでロジック</span>
-          <span class="badge">小さなツール / ミニアプリ向け</span>
+          <span class="badge-accent">println と var から始める</span>
+          <span class="badge">小さなスクリプト / ツール向け</span>
         </div>
         <h1 class="hero-title">
-          「ちょっとしたツール」を、<span>SKIP</span>で軽く組み立てる。
+          余計なものを<span>全部スキップ</span>して、書きたいことだけ書く。
         </h1>
         <p class="hero-sub">
-          SKIPは、画面や構造をYAMLで定義し、ロジックをPythonで書くミニアプリフレームワークです。<br>
-          フルスタックなGUIフレームワークほど重くなく、CLIだけよりも少しだけリッチな体験を目指しています。
+          SKIPは、「ちょっと試したい」「小さな処理を書きたい」というときに、<br>
+          余計なボイラープレートをできるだけ減らすことを目指したミニマルなフレームワークです。<br>
+          まずは <code>var</code> と <code>println</code> だけの小さな世界から始められます。
         </p>
         <div class="hero-actions">
           <button class="btn btn-primary" onclick="document.getElementById('mini-ide').scrollIntoView({behavior:'smooth'})">
-            ミニIDEで println / var を試す
+            ブラウザ上のミニIDEで試す
           </button>
           <a class="btn btn-ghost" href="https://zenn.dev/tkea" target="_blank" rel="noopener">
-            Zennで開発ノートを見る
+            ZennでSKIPの記事を読む
           </a>
         </div>
         <div class="hero-note">
-          実際のSKIPはYAML + Pythonで動作します。このページのミニIDEは、コンセプトを伝えるための簡易ランタイムです。
+          このページのミニIDEは、SKIPのごく一部のイメージ（println / var）だけを切り出した簡易版です。
         </div>
       </div>
 
       <div class="hero-side">
-        <div class="hero-side-title">SKIPのイメージ（YAML + Python）</div>
-        <div class="code-block" style="margin-bottom:8px;">
-          <pre>window:
-  title: "HELLO, SKIP!"
-  width: 400
-  height: 200
-
-layout:
-  - type: label
-    id: message
-    text: "HELLO, SKIP!"
-
-  - type: button
-    text: "Click"
-    on_click: on_click_hello</pre>
-        </div>
+        <div class="hero-side-title">SKIPのごく小さな断片</div>
         <div class="code-block">
-          <pre>def on_click_hello(ctx):
-    # ctx は画面コンテキスト
-    ctx["message"].text = "Button clicked!"
+          <pre>var name = "SKIP"
+var x = 1
+var y = 2
 
-register_handler("on_click_hello", on_click_hello)</pre>
+println name
+println x
+println x + y
+println "HELLO, " + name</pre>
         </div>
       </div>
     </section>
@@ -541,93 +529,41 @@ register_handler("on_click_hello", on_click_hello)</pre>
       <section id="about">
         <div class="section-header">
           <div class="section-title">SKIPとは</div>
-          <div class="section-sub">YAMLで構造を、Pythonでロジックを記述するミニアプリフレームワーク</div>
+          <div class="section-sub">「とりあえず書いて動かす」を軽くするためのミニマルな土台</div>
         </div>
         <div class="section-grid">
           <div class="feature-list">
             <div>
-              <div class="feature-item-title">YAMLで宣言的に構造を書く</div>
+              <div class="feature-item-title">小さなスクリプトにちょうどいい</div>
               <div class="feature-item-desc">
-                画面やレイアウト、コンポーネントの構造をYAMLで定義します。コードの見通しがよく、後から読み返しても理解しやすい形を目指しています。
+                ちょっとした計算、テキスト処理、ログ出力など、「ファイル1つで済む」ような用途を想定しています。
               </div>
             </div>
             <div>
-              <div class="feature-item-title">ロジックはPythonに集中</div>
+              <div class="feature-item-title">構文はできるだけシンプルに</div>
               <div class="feature-item-desc">
-                イベントハンドラや処理はPythonで記述。YAMLからハンドラ名を紐づけることで、構造とロジックを自然に分離できます。
+                まずは <code>var</code> と <code>println</code> のような、直感的で覚えやすい構文から始められます。
               </div>
             </div>
             <div>
-              <div class="feature-item-title">「ミニアプリ」にフォーカス</div>
+              <div class="feature-item-title">実験と学習のための場</div>
               <div class="feature-item-desc">
-                大規模アプリではなく、自分用ツールやチーム内ユーティリティなど、小さなアプリケーションを素早く作ることに特化しています。
+                新しいアイデアや構文を試すための「実験場」としても使えるように設計しています。
               </div>
             </div>
           </div>
           <div>
             <div class="code-block">
-              <pre>- 日常のちょっとした計算ツール
-- テキスト変換・整形ツール
-- APIクライアントの簡易フロント
-- チーム内で共有する小さな業務支援ツール</pre>
+              <pre>- ちょっとした計算スクリプト
+- テキストの整形や変換
+- ログ出力のフォーマット実験
+- 言語設計の試行錯誤</pre>
             </div>
             <div class="tag-row">
-              <span class="tag">YAMLベース</span>
-              <span class="tag">Pythonロジック</span>
-              <span class="tag">ミニアプリ</span>
+              <span class="tag">ミニ言語</span>
+              <span class="tag">スクリプト</span>
+              <span class="tag">実験</span>
               <span class="tag">個人開発</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- コード例 -->
-      <section id="examples">
-        <div class="section-header">
-          <div class="section-title">YAML + Python の簡単な例</div>
-          <div class="section-sub">構造とロジックを分けて書くイメージ</div>
-        </div>
-        <div class="section-grid">
-          <div>
-            <div class="code-block">
-              <pre>window:
-  title: "Tax Calculator"
-  width: 480
-  height: 260
-
-layout:
-  - type: input
-    id: price_input
-    label: "Price (JPY)"
-
-  - type: input
-    id: tax_input
-    label: "Tax (%)"
-
-  - type: button
-    text: "Calculate"
-    on_click: on_calculate
-
-  - type: label
-    id: result
-    text: "Result will be shown here."</pre>
-            </div>
-          </div>
-          <div>
-            <div class="code-block">
-              <pre>def on_calculate(ctx):
-    price_str = ctx["price_input"].value
-    tax_str = ctx["tax_input"].value
-
-    try:
-        price = float(price_str)
-        tax = float(tax_str)
-    except ValueError:
-        ctx["result"].text = "Invalid input."
-        return
-
-    total = price * (1 + tax / 100.0)
-    ctx["result"].text = f"Total: {total:.2f} JPY"</pre>
             </div>
           </div>
         </div>
@@ -636,8 +572,8 @@ layout:
       <!-- ミニIDE（println / var） -->
       <section id="mini-ide">
         <div class="section-header">
-          <div class="section-title">ミニIDE（println / var だけの小さなランタイム）</div>
-          <div class="section-sub">SKIPの「軽く試せる」感じを伝えるための、超シンプルなミニ言語</div>
+          <div class="section-title">ミニIDE（println / var のみ対応）</div>
+          <div class="section-sub">ブラウザ上で、SKIPのごく一部の構文を試せる簡易インタプリタ</div>
         </div>
         <div class="ide-layout">
           <div class="ide-panel">
@@ -659,7 +595,7 @@ println "HELLO, " + name</textarea>
                 <button class="btn-small" onclick="resetMiniIDE()">リセット</button>
               </div>
               <div id="mini-ide-status" class="ide-status">
-                簡易インタプリタです。SKIP本体とは別実装ですが、軽く試す雰囲気をイメージできます。
+                簡易インタプリタです。SKIP本体の一部イメージとして動作します。
               </div>
             </div>
           </div>
@@ -677,27 +613,27 @@ println "HELLO, " + name</textarea>
       <section id="links">
         <div class="section-header">
           <div class="section-title">リンク</div>
-          <div class="section-sub">SKIPに関する情報や開発ノート</div>
+          <div class="section-sub">SKIPに関する記事やコード</div>
         </div>
         <div class="section-grid">
           <div class="feature-list">
             <div>
-              <div class="feature-item-title">GitHubリポジトリ</div>
+              <div class="feature-item-title">Zenn</div>
               <div class="feature-item-desc">
-                実装やサンプルコードはGitHubで公開しています。
+                SKIPの背景や設計、実験ログなどをZennにまとめています。
               </div>
             </div>
             <div>
-              <div class="feature-item-title">Zenn</div>
+              <div class="feature-item-title">GitHub</div>
               <div class="feature-item-desc">
-                開発の背景や設計メモ、実験的なアイデアなどをZennにまとめています。
+                実装やサンプルコード、実験的なブランチなどはGitHubで公開していく想定です。
               </div>
             </div>
           </div>
           <div>
             <div class="tag-row">
-              <a class="tag" href="https://github.com/tkeaprograming/skip" target="_blank" rel="noopener">GitHub: tkeaprograming/skip</a>
               <a class="tag" href="https://zenn.dev/tkea" target="_blank" rel="noopener">Zenn: @tkea</a>
+              <a class="tag" href="https://github.com/tkeaprograming" target="_blank" rel="noopener">GitHub: tkeaprograming</a>
             </div>
           </div>
         </div>
@@ -707,13 +643,13 @@ println "HELLO, " + name</textarea>
     <footer>
       <div>© 2026 SKIP / tkea</div>
       <div class="footer-links">
-        <a href="https://github.com/tkeaprograming/skip" target="_blank" rel="noopener">GitHub</a>
         <a href="https://zenn.dev/tkea" target="_blank" rel="noopener">Zenn</a>
+        <a href="https://github.com/tkeaprograming" target="_blank" rel="noopener">GitHub</a>
       </div>
     </footer>
   </div>
 
-  <!-- ミニIDE用スクリプト -->
+  <!-- ミニIDE用スクリプト（println / varのみ） -->
   <script>
     const miniDefaultCode = `var name = "SKIP"
 var x = 1
@@ -745,7 +681,6 @@ println "HELLO, " + name`;
       const outputs = [];
 
       function evalExpr(expr) {
-        // 文字列リテラルと + のみサポート
         const parts = expr.split("+").map(p => p.trim()).filter(p => p.length > 0);
         let result = "";
         let numeric = true;
@@ -756,7 +691,6 @@ println "HELLO, " + name`;
               (part.startsWith("'") && part.endsWith("'"))) {
             const s = part.slice(1, -1);
             if (numeric) {
-              // 文字列が混ざったら文字列連結モード
               numeric = false;
               result = String(numValue) + s;
             } else {
@@ -786,7 +720,6 @@ println "HELLO, " + name`;
               result += String(n);
             }
           } else {
-            // 未定義変数はそのまま文字列扱い
             if (numeric) {
               numeric = false;
               result = String(numValue) + part;
@@ -803,8 +736,8 @@ println "HELLO, " + name`;
         for (let raw of lines) {
           const line = raw.trim();
           if (!line) continue;
+
           if (line.startsWith("var ")) {
-            // var name = expr
             const rest = line.slice(4).trim();
             const eqIndex = rest.indexOf("=");
             if (eqIndex === -1) continue;
@@ -825,7 +758,7 @@ println "HELLO, " + name`;
             const value = evalExpr(expr);
             outputs.push(String(value));
           } else {
-            // それ以外は無視（エラーにしない）
+            // それ以外は今は無視
           }
         }
         outEl.textContent = outputs.join("\n");
@@ -835,9 +768,7 @@ println "HELLO, " + name`;
       }
     }
 
-    // 初期化
     resetMiniIDE();
   </script>
 </body>
 </html>
-
