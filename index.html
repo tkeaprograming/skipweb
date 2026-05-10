@@ -2,11 +2,11 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>SKIP - ミニマルなスクリプトとツールのためのフレームワーク</title>
+  <title>Skip - YAMLベースの軽量スクリプトエンジン</title>
 
   <!-- SEO -->
-  <meta name="description" content="SKIPは、小さなスクリプトやツールを気軽に書くためのミニマルなフレームワークです。printlnやvarなど、シンプルな構文から始められます。">
-  <meta name="keywords" content="SKIP, tkea, ミニ言語, スクリプト, println, var">
+  <meta name="description" content="Skipは、YAMLで書ける軽量なスクリプトエンジンです。printlnやvarなどの直感的な構文で、CLIツールやテキストベースの処理を素早く組み立てられます。">
+  <meta name="keywords" content="Skip, Skip-v0.1, YAML, スクリプトエンジン, println, var, tkea">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -469,8 +469,8 @@
       <div class="logo">
         <div class="logo-mark">S</div>
         <div>
-          <div class="logo-text-main">SKIP</div>
-          <div class="logo-text-sub">MINIMAL SCRIPT FRAMEWORK</div>
+          <div class="logo-text-main">Skip</div>
+          <div class="logo-text-sub">YAML-BASED SCRIPT ENGINE</div>
         </div>
       </div>
       <nav class="nav-links">
@@ -485,41 +485,46 @@
     <section class="hero">
       <div class="hero-card">
         <div class="hero-badges">
-          <span class="badge-accent">println と var から始める</span>
-          <span class="badge">小さなスクリプト / ツール向け</span>
+          <span class="badge-accent">YAMLベースのスクリプトエンジン</span>
+          <span class="badge">軽量 / 直感的 / 拡張しやすい</span>
         </div>
         <h1 class="hero-title">
-          余計なものを<span>全部スキップ</span>して、書きたいことだけ書く。
+          コードじゃなくて、<span>YAMLで書くスクリプト</span>という選択肢。
         </h1>
         <p class="hero-sub">
-          SKIPは、「ちょっと試したい」「小さな処理を書きたい」というときに、<br>
-          余計なボイラープレートをできるだけ減らすことを目指したミニマルなフレームワークです。<br>
-          まずは <code>var</code> と <code>println</code> だけの小さな世界から始められます。
+          Skip は、YAMLで書ける軽量なスクリプトエンジンです。<br>
+          Python を土台に、<code>println</code> や <code>var</code> などの直感的なコマンドで、<br>
+          CLIツールやテキストベースの処理、ちょっとしたアドベンチャーまで組み立てられます。
         </p>
         <div class="hero-actions">
           <button class="btn btn-primary" onclick="document.getElementById('mini-ide').scrollIntoView({behavior:'smooth'})">
-            ブラウザ上のミニIDEで試す
+            ブラウザ上のミニIDEで println / var を試す
           </button>
-          <a class="btn btn-ghost" href="https://zenn.dev/tkea" target="_blank" rel="noopener">
-            ZennでSKIPの記事を読む
+          <a class="btn btn-ghost" href="https://github.com/tkeaprograming/Skip-v0.1" target="_blank" rel="noopener">
+            GitHub: Skip-v0.1 を見る
           </a>
         </div>
         <div class="hero-note">
-          このページのミニIDEは、SKIPのごく一部のイメージ（println / var）だけを切り出した簡易版です。
+          このページのミニIDEは、Skip-v0.1 のごく一部（println / var）だけを再現した簡易ランタイムです。
         </div>
       </div>
 
       <div class="hero-side">
-        <div class="hero-side-title">SKIPのごく小さな断片</div>
+        <div class="hero-side-title">demo.skp のイメージ（抜粋）</div>
         <div class="code-block">
-          <pre>var name = "SKIP"
-var x = 1
-var y = 2
+          <pre>def:
+  name: "greet"
+  do:
+    - println: " {C.Y}-------------------- {C.END}"
+    - println: " Hello, {name}!"
+    - println: " {C.Y}-------------------- {C.END}"
 
-println name
-println x
-println x + y
-println "HELLO, " + name</pre>
+var: { name: "Explorer" }
+
+call: "greet"
+
+clc: "10 * 5 + 5"
+println: " {C.G}Calculation Result: {res} {C.END}"</pre>
         </div>
       </div>
     </section>
@@ -528,42 +533,49 @@ println "HELLO, " + name</pre>
       <!-- 概要 -->
       <section id="about">
         <div class="section-header">
-          <div class="section-title">SKIPとは</div>
-          <div class="section-sub">「とりあえず書いて動かす」を軽くするためのミニマルな土台</div>
+          <div class="section-title">Skipとは</div>
+          <div class="section-sub">YAMLで書ける軽量スクリプトエンジン（Skip-v0.1）</div>
         </div>
         <div class="section-grid">
           <div class="feature-list">
             <div>
-              <div class="feature-item-title">小さなスクリプトにちょうどいい</div>
+              <div class="feature-item-title">YAML-Native</div>
               <div class="feature-item-desc">
-                ちょっとした計算、テキスト処理、ログ出力など、「ファイル1つで済む」ような用途を想定しています。
+                ロジックをそのままYAMLで書けるように設計されたスクリプトエンジンです。インデントとキーで構造が見えるので、後から読んでも追いやすいのが特徴です。
               </div>
             </div>
             <div>
-              <div class="feature-item-title">構文はできるだけシンプルに</div>
+              <div class="feature-item-title">動的評価と変数展開</div>
               <div class="feature-item-desc">
-                まずは <code>var</code> と <code>println</code> のような、直感的で覚えやすい構文から始められます。
+                <code>{var_name}</code> のような形で、文字列中に変数を埋め込めます（f-string風）。計算結果や状態をそのままメッセージに反映できます。
               </div>
             </div>
             <div>
-              <div class="feature-item-title">実験と学習のための場</div>
+              <div class="feature-item-title">軽量で拡張しやすい</div>
               <div class="feature-item-desc">
-                新しいアイデアや構文を試すための「実験場」としても使えるように設計しています。
+                Python製のエンジンなので、必要に応じてコマンドを追加したり、独自の処理を組み込んだりといった拡張がしやすい構造になっています。
               </div>
             </div>
           </div>
           <div>
             <div class="code-block">
-              <pre>- ちょっとした計算スクリプト
-- テキストの整形や変換
-- ログ出力のフォーマット実験
-- 言語設計の試行錯誤</pre>
+              <pre>主なコマンド（Skip-v0.1）:
+- println: コンソール出力
+- typetext: タイピング風出力
+- var: 変数の定義・更新
+- clc: 数式の評価
+- def: 関数定義
+- call: 関数呼び出し
+- adopt: 他の .skp を読み込み
+- save: 変数の保存
+- input: 入力の取得
+- exit: スクリプト終了</pre>
             </div>
             <div class="tag-row">
-              <span class="tag">ミニ言語</span>
-              <span class="tag">スクリプト</span>
-              <span class="tag">実験</span>
-              <span class="tag">個人開発</span>
+              <span class="tag">YAML</span>
+              <span class="tag">Pythonベース</span>
+              <span class="tag">CLIツール</span>
+              <span class="tag">テキストアドベンチャー</span>
             </div>
           </div>
         </div>
@@ -573,29 +585,25 @@ println "HELLO, " + name</pre>
       <section id="mini-ide">
         <div class="section-header">
           <div class="section-title">ミニIDE（println / var のみ対応）</div>
-          <div class="section-sub">ブラウザ上で、SKIPのごく一部の構文を試せる簡易インタプリタ</div>
+          <div class="section-sub">Skip-v0.1 のごく一部をブラウザ上で試せる簡易インタプリタ</div>
         </div>
         <div class="ide-layout">
           <div class="ide-panel">
             <div class="ide-panel-header">
-              <span>コードエディタ</span>
-              <span>サポート: <code>var name = value</code>, <code>println expr</code></span>
+              <span>コードエディタ（簡易 .skp 風）</span>
+              <span>サポート: <code>var: { name: "value" }</code>, <code>println: "..."</code></span>
             </div>
-            <textarea id="mini-ide-input" class="ide-editor" spellcheck="false">var name = "SKIP"
-var x = 1
-var y = 2
+            <textarea id="mini-ide-input" class="ide-editor" spellcheck="false">var: { name: "Explorer" }
 
-println name
-println x
-println x + y
-println "HELLO, " + name</textarea>
+println: "Hello, {name}!"
+println: "2 + 3 = {five}"  # five は未定義なのでそのまま出ます</textarea>
             <div class="ide-toolbar">
               <div>
                 <button class="btn-small btn-small-primary" onclick="runMiniIDE()">実行</button>
                 <button class="btn-small" onclick="resetMiniIDE()">リセット</button>
               </div>
               <div id="mini-ide-status" class="ide-status">
-                簡易インタプリタです。SKIP本体の一部イメージとして動作します。
+                Skip-v0.1 の println / var だけを真似た簡易ランタイムです（完全互換ではありません）。
               </div>
             </div>
           </div>
@@ -613,27 +621,27 @@ println "HELLO, " + name</textarea>
       <section id="links">
         <div class="section-header">
           <div class="section-title">リンク</div>
-          <div class="section-sub">SKIPに関する記事やコード</div>
+          <div class="section-sub">Skip-v0.1 と開発ノート</div>
         </div>
         <div class="section-grid">
           <div class="feature-list">
             <div>
-              <div class="feature-item-title">Zenn</div>
+              <div class="feature-item-title">GitHub: Skip-v0.1</div>
               <div class="feature-item-desc">
-                SKIPの背景や設計、実験ログなどをZennにまとめています。
+                Skip のエンジン本体、demo.skp、README などは GitHub リポジトリで公開されています。
               </div>
             </div>
             <div>
-              <div class="feature-item-title">GitHub</div>
+              <div class="feature-item-title">Zenn: tkea</div>
               <div class="feature-item-desc">
-                実装やサンプルコード、実験的なブランチなどはGitHubで公開していく想定です。
+                言語設計の背景や実験ログ、今後の構想などを Zenn にまとめています。
               </div>
             </div>
           </div>
           <div>
             <div class="tag-row">
+              <a class="tag" href="https://github.com/tkeaprograming/Skip-v0.1" target="_blank" rel="noopener">GitHub: tkeaprograming/Skip-v0.1</a>
               <a class="tag" href="https://zenn.dev/tkea" target="_blank" rel="noopener">Zenn: @tkea</a>
-              <a class="tag" href="https://github.com/tkeaprograming" target="_blank" rel="noopener">GitHub: tkeaprograming</a>
             </div>
           </div>
         </div>
@@ -641,24 +649,20 @@ println "HELLO, " + name</textarea>
     </main>
 
     <footer>
-      <div>© 2026 SKIP / tkea</div>
+      <div>© 2026 Skip / tkea</div>
       <div class="footer-links">
+        <a href="https://github.com/tkeaprograming/Skip-v0.1" target="_blank" rel="noopener">GitHub</a>
         <a href="https://zenn.dev/tkea" target="_blank" rel="noopener">Zenn</a>
-        <a href="https://github.com/tkeaprograming" target="_blank" rel="noopener">GitHub</a>
       </div>
     </footer>
   </div>
 
-  <!-- ミニIDE用スクリプト（println / varのみ） -->
+  <!-- ミニIDE用スクリプト（println / var のみ） -->
   <script>
-    const miniDefaultCode = `var name = "SKIP"
-var x = 1
-var y = 2
+    const miniDefaultCode = `var: { name: "Explorer" }
 
-println name
-println x
-println x + y
-println "HELLO, " + name`;
+println: "Hello, {name}!"
+println: "Skip-v0.1 mini runtime in browser."`;
 
     function resetMiniIDE() {
       document.getElementById("mini-ide-input").value = miniDefaultCode;
@@ -673,92 +677,61 @@ println "HELLO, " + name`;
       const outEl = document.getElementById("mini-ide-output");
       const status = document.getElementById("mini-ide-status");
       outEl.textContent = "";
-      status.textContent = "実行しました。";
+      status.textContent = "実行しました。（println / var のみ対応）";
       status.classList.remove("ide-status-error");
 
       const lines = code.split(/\r?\n/);
       const vars = {};
       const outputs = [];
 
-      function evalExpr(expr) {
-        const parts = expr.split("+").map(p => p.trim()).filter(p => p.length > 0);
-        let result = "";
-        let numeric = true;
-        let numValue = 0;
-
+      function setVarsFromInlineObject(objText) {
+        // かなり雑な { key: "value" } パーサ（デモ用）
+        const inner = objText.trim().replace(/^\{/, "").replace(/\}$/, "");
+        if (!inner) return;
+        const parts = inner.split(",").map(p => p.trim()).filter(p => p.length > 0);
         for (let part of parts) {
-          if ((part.startsWith('"') && part.endsWith('"')) ||
-              (part.startsWith("'") && part.endsWith("'"))) {
-            const s = part.slice(1, -1);
-            if (numeric) {
-              numeric = false;
-              result = String(numValue) + s;
-            } else {
-              result += s;
-            }
-          } else if (part in vars) {
-            const v = vars[part];
-            if (typeof v === "number") {
-              if (numeric) {
-                numValue += v;
-              } else {
-                result += String(v);
-              }
-            } else {
-              if (numeric) {
-                numeric = false;
-                result = String(numValue) + String(v);
-              } else {
-                result += String(v);
-              }
-            }
-          } else if (!isNaN(Number(part))) {
-            const n = Number(part);
-            if (numeric) {
-              numValue += n;
-            } else {
-              result += String(n);
-            }
-          } else {
-            if (numeric) {
-              numeric = false;
-              result = String(numValue) + part;
-            } else {
-              result += part;
-            }
+          const idx = part.indexOf(":");
+          if (idx === -1) continue;
+          const key = part.slice(0, idx).trim();
+          let val = part.slice(idx + 1).trim();
+          if ((val.startsWith('"') && val.endsWith('"')) ||
+              (val.startsWith("'") && val.endsWith("'"))) {
+            val = val.slice(1, -1);
           }
+          vars[key] = val;
         }
+      }
 
-        return numeric ? numValue : result;
+      function expandVars(str) {
+        return str.replace(/\{([^}]+)\}/g, (m, name) => {
+          const key = name.trim();
+          return key in vars ? String(vars[key]) : m;
+        });
       }
 
       try {
         for (let raw of lines) {
           const line = raw.trim();
-          if (!line) continue;
+          if (!line || line.startsWith("#") || line.startsWith("- #")) continue;
 
-          if (line.startsWith("var ")) {
-            const rest = line.slice(4).trim();
-            const eqIndex = rest.indexOf("=");
-            if (eqIndex === -1) continue;
-            const name = rest.slice(0, eqIndex).trim();
-            const expr = rest.slice(eqIndex + 1).trim();
-            let value;
-            if ((expr.startsWith('"') && expr.endsWith('"')) ||
-                (expr.startsWith("'") && expr.endsWith("'"))) {
-              value = expr.slice(1, -1);
-            } else if (!isNaN(Number(expr))) {
-              value = Number(expr);
-            } else {
-              value = evalExpr(expr);
+          // "- println:" 形式も許容
+          let l = line;
+          if (l.startsWith("- ")) l = l.slice(2).trim();
+
+          if (l.startsWith("var:")) {
+            const after = l.slice("var:".length).trim();
+            if (after.startsWith("{")) {
+              setVarsFromInlineObject(after);
             }
-            vars[name] = value;
-          } else if (line.startsWith("println ")) {
-            const expr = line.slice("println".length).trim();
-            const value = evalExpr(expr);
-            outputs.push(String(value));
+          } else if (l.startsWith("println:")) {
+            let text = l.slice("println:".length).trim();
+            if ((text.startsWith('"') && text.endsWith('"')) ||
+                (text.startsWith("'") && text.endsWith("'"))) {
+              text = text.slice(1, -1);
+            }
+            outputs.push(expandVars(text));
           } else {
-            // それ以外は今は無視
+            // 他のコマンドは無視（エラーにしない）
           }
         }
         outEl.textContent = outputs.join("\n");
