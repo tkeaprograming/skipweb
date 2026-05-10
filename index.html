@@ -91,24 +91,9 @@
 
     <section id="example">
       <h2>どんな感じで書くの？</h2>
-      <p>例えば、シンプルな入力フォーム付きツールはこんな感じで書けます。</p>
+      <p>例:</p>
       <code>
-app:
-  title: "テキスト要約ツール"
-  pages:
-    - id: "home"
-      type: "form"
-      fields:
-        - name: "text"
-          label: "要約したいテキスト"
-          type: "textarea"
-      actions:
-        - label: "要約する"
-          handler: "summarize"
-
-# Python側
-def summarize(text: str) -&gt; str:
-    return my_summarizer(text)
+- println: "HELLO,SKIP!"
       </code>
     </section>
 
@@ -116,14 +101,14 @@ def summarize(text: str) -&gt; str:
       <h2>SKIP IDE — SKIPを最大限に活かす公式エディタ</h2>
       <p>
         SKIP IDE は、SKIPアプリを素早く作るための軽量エディタです。<br>
-        YAML と Python を同時に扱いやすくし、ミニアプリ開発をさらにスムーズにします。
+        SKIPを瞬時実行、ミニアプリ開発をさらにスムーズにします。
       </p>
 
       <div class="grid">
         <div class="card">
           <div class="badge">IDE 01</div>
-          <h3>YAML × Python の二面編集</h3>
-          <p>画面定義とロジックを並べて編集でき、構造が直感的に理解できます。</p>
+          <h3>SKIPの開発をお助け</h3>
+          <p>透明感がある、SKIPの開発に便利なエディタ。</p></p>
         </div>
 
         <div class="card">
@@ -131,13 +116,6 @@ def summarize(text: str) -&gt; str:
           <h3>ワンクリック実行</h3>
           <p>Run ボタンひとつで SKIP アプリを即実行。試行錯誤が圧倒的に速い。</p>
         </div>
-
-        <div class="card">
-          <div class="badge">IDE 03</div>
-          <h3>エラー表示とログ</h3>
-          <p>実行時のエラーやログを IDE 内で確認でき、デバッグがスムーズ。</p>
-        </div>
-
         <div class="card">
           <div class="badge">IDE 04</div>
           <h3>ファイル読み込み・保存</h3>
